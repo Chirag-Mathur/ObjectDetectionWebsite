@@ -12,6 +12,7 @@ import "./App.css";
 function App() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
+  //canvasRef.scale(-1,1);
 
   // Main function
   const runCoco = async () => {
@@ -46,8 +47,11 @@ function App() {
       canvasRef.current.width = videoWidth;
       canvasRef.current.height = videoHeight;
 
+      //canvasRef.scale(-1,1);
+
       // 4. TODO - Make Detections
-      // e.g. const obj = await net.detect(video);
+      const obj = await net.detect(video);
+      console.log(obj)
 
       // Draw mesh
       const ctx = canvasRef.current.getContext("2d");
@@ -90,6 +94,7 @@ function App() {
             zindex: 8,
             width: 640,
             height: 480,
+
           }}
         />
       </header>
