@@ -6,8 +6,8 @@ import * as tf from "@tensorflow/tfjs";
 import * as cocossd from "@tensorflow-models/coco-ssd";
 import Webcam from "react-webcam";
 import "./App.css";
-// 2. TODO - Import drawing utility here
-// e.g. import { drawRect } from "./utilities";
+
+ import { drawRect } from "./utilities";
 
 function App() {
   const webcamRef = useRef(null);
@@ -56,8 +56,7 @@ function App() {
       // Draw mesh
       const ctx = canvasRef.current.getContext("2d");
 
-      // 5. TODO - Update drawing utility
-      // drawSomething(obj, ctx)  
+      drawRect(obj, ctx)
     }
   };
 
@@ -65,7 +64,10 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Object Detection Website</h1>
+      
       <header className="App-header">
+        
         <Webcam
           ref={webcamRef}
           muted={true} 
@@ -98,6 +100,7 @@ function App() {
           }}
         />
       </header>
+      
     </div>
   );
 }
